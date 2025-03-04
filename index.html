@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spcss@0.9.0">
+<h1>
+Welcome to Ai Slideshow! A slideshow of images made by Ai! Put in your prompt to start the slideshow!
+</h1>
+
+<h3>
+What is the prompt?
+</h3>
+<button onclick="redirect()">Go</button>
+<input type="text" id="prompt" >
+<script>
+    
+    function redirect() {
+            window.location.href = `/slideshow/?prompt=${document.getElementById("prompt").value}`
+    }
+</script>
