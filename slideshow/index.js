@@ -39,7 +39,7 @@ async function updateImg() {
 }
 
 
-setInterval(updateImg,(1*5000))
+setInterval(updateImg,(10*1000))
 //updateImg();
 
 var w = window.innerWidth;
