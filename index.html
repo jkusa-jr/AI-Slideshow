@@ -14,6 +14,7 @@ What is the prompt?
 <script>
     
     function redirect() {
-            window.location.href = `/Ai-Slideshow/slideshow/?prompt=${document.getElementById("prompt").value}`
+            let rootUrl = window.location.pathname.split('index.html')[0];
+            window.location = `${rootUrl}/slideshow/index.html?prompt=${document.getElementById("prompt").value}`;
     }
 </script>

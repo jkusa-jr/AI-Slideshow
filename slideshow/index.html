@@ -4,6 +4,7 @@
 <head>
     <style>
  body {
+            margin: 0;
             background: black;
             width: 100vw;
             height: 100vh;
@@ -23,10 +24,10 @@
         }
     </style>
 </head>
-
 <body>
-    <img src="placeholder.svg" onload="this.onclick = () => location.href = this.src;">
     <script src="index.js"></script>
+    <img src="placeholder.svg" onload="this.onclick = () => download(this.src)">
+
 </body>
 
 </html>
