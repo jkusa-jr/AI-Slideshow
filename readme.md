@@ -2,7 +2,7 @@
 
 #### Used https://github.com/susam/spcss and https://github.com/pollinations/pollinations
 
-Click on the image to go to it's url. Can be slow.
+Click on the image to download it
 
 I recommend Fullscreen
 
