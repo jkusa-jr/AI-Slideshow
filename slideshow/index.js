@@ -1,3 +1,29 @@
+async function downloadIMG(url, filename) {
+    const response = await fetch(url);
+    const blob = await response.blob();
+
+    const uniqueFilename = filename.replace(/\.[^/.]+$/, "") + "-" + Date.now() + filename.match(/\.[^/.]+$/)[0];
+
+    if (window.showSaveFilePicker) {
+        const handle = await window.showSaveFilePicker({
+            suggestedName: uniqueFilename,
+            types: [{ accept: { [blob.type]: ['.' + filename.split('.').pop()] } }]
+        });
+        const writable = await handle.createWritable();
+        await writable.write(blob);
+        await writable.close();
+    } else {
+        const file = new File([blob], uniqueFilename, { type: blob.type });
+        const objectURL = URL.createObjectURL(file);
+        const link = document.createElement("a");
+        link.href = objectURL;
+        link.download = uniqueFilename;
+        link.click();
+        URL.revokeObjectURL(objectURL);
+    }
+}
+
+
 function getRandomInt(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
@@ -31,14 +57,5 @@ async function updateImg() {
     }
 }
 
-function download(url) {
-    let downloading = browser.downloads.download({
-        url,
-        filename: "AI.png",
-        conflictAction: "uniquify",
-    });
-  
-    downloading.then(onStartedDownload, onFailed);
-}
 
 setInterval(updateImg, (10 * 1000))
