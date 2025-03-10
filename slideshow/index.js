@@ -57,5 +57,10 @@ async function updateImg() {
     }
 }
 
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        history.back()
+    }
+});
 
 setInterval(updateImg, (10 * 1000))

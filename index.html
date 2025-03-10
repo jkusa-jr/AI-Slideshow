@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Ai Slideshow</title>
+<title>AI Slideshow</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spcss@0.9.0">
 <h1>
-Welcome to Ai Slideshow! A slideshow of images made by Ai! Put in your prompt to start the slideshow!
+Welcome to AI Slideshow! A slideshow of images made by AI! Put in your prompt to start the slideshow!
 </h1>
 
 <h3>
@@ -13,6 +13,13 @@ What is the prompt?
 <input type="text" id="prompt" >
 <script>
     
+    var input = document.getElementById("prompt");
+    input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        redirect()
+        }
+    });
+
     function redirect() {
             let rootUrl = window.location.pathname.split('index.html')[0];
             window.location = `${rootUrl}/slideshow/index.html?prompt=${document.getElementById("prompt").value}`;
