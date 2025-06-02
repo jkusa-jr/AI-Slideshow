@@ -35,9 +35,10 @@
             redirect()
         }
     });
-
+    
     function redirect() {
-        window.location = `/slideshow?prompt=${document.getElementById("prompt").value}`;
+        let rootUrl = window.location.pathname
+        window.location = `${rootUrl}/slideshow?prompt=${document.getElementById("prompt").value}`;
     }
 </script>
 </body>
